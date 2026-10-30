@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose your scan</title>
+</head>
+<body>
+  <div class="ocrloader">
+        <em></em>
+        <div>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i>
+        </div>
+        <span></span>
+  </div>
+  <div class="wrapper">
+    <h3 class="articleTitle">Choose which scan you prefer</h3>
+    <div class="container">
+      <a href="/choice/pLow" class="button btnFloat btnBlueGreen" onclick="loading();">Low</a>
+      <a href="/choice/pMed" class="button btnFloat btnLightBlue" onclick="loading();">Medium</a>
+      <a href="/choice/pHigh" class="button btnFloat btnOrange" onclick="loading();">High</a>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+function loading() {
+    const loader = document.querySelector('.ocrloader');
+    const submit = document.querySelector('.wrapper');
+
+    loader.style.display = 'block';
+    submit.style.display = 'none';
+}
+
+</script>
+<!-- add the right css file -->
+    {% block styles %}
+    <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+    {% endblock %}
+</body>
+</html>

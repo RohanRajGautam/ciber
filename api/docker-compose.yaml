@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  ciber:
+    build:
+      context: .
+      target: dev
+    volumes:
+      - ./:/app
+    command: python3 -m flask run --host=0.0.0.0
+    ports:
+      - "5000:5000"
+    networks:
+      - ciber
+
+networks:
+  ciber: {}

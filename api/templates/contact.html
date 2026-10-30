@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Montserrat"
+			rel="stylesheet"
+		/>
+		<title>Welcome to CIBER</title>
+	</head>
+	<body>
+		<!-- here we add our contact forms -->
+		{% block content %}
+		<form action="{{ url_for('contact') }}" method="post" id="url-form">
+			<div class="input">
+				<div class="input-container">
+					<!-- <input type="text" class="input-field" placeholder="Enter your website url" /> -->
+					{{ form.name(placeholder='Enter your website url',
+					class="input-field") }}
+					<div class="input-field-shadow"></div>
+				</div>
+				<div class="submit-container">
+					<!-- <input type="submit" class="submit-btn" /> -->
+					{{ form.submit(class="submit-btn") }}
+					<div class="submit-btn-shadow"></div>
+				</div>
+			</div>
+		</form>
+		{% endblock %}
+		<script type="text/javascript">
+			const input = document.querySelector('.input-field')
+
+			function showSubmitButton() {
+				const submit = document.querySelector('.submit-container')
+
+				if (input.value.length >= 0) {
+					submit.style.opacity = '1'
+				} else {
+					submit.style.opacity = '0'
+				}
+			}
+
+			input.addEventListener('input', showSubmitButton)
+		</script>
+
+		<!-- add the right css file -->
+		{% block styles %}
+		<link
+			rel="stylesheet"
+			href="{{url_for('.static', filename='styles.css')}}"
+		/>
+		{% endblock %}
+	</body>
+</html>
